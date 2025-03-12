@@ -1,0 +1,25 @@
+.shopNowBtn {
+    bottom: 10%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #001F3F;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    width: 15%;
+}
+
+.ctaText {
+    bottom: 15%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    width: 15%;
+}

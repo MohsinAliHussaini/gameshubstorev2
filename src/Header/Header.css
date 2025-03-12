@@ -1,0 +1,9 @@
+.center {
+    margin:0 auto;
+    font-size:1.25rem !important;
+}
+
+.center a {
+    color:#001F3F !important;
+    font-family: "Open Sans", sans-serif;
+}

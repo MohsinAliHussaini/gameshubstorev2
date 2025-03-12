@@ -1,0 +1,53 @@
+.categoryList {
+    list-style: none;
+    color:#838383 !important;
+}
+
+.footerDesc{
+    font-size: 24px;
+    width: 70%;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: justify;
+    color:#838383 !important;
+}
+.contactDesc { 
+    line-height: 0.5;
+}
+.contactDesc p{
+    color:#838383 !important;
+    
+}
+
+.locationDesc p {
+    color:#838383 !important;
+}
+
+.hrClass {
+    background-color: gainsboro;
+    height: 2px;
+    border:none;
+}
+
+.borderLine {
+    border-top:solid 2px #838383;
+    
+}
+
+@media (max-width: 575px) {
+    /* Styles for extra small devices */
+    .footerDesc 
+    {
+        width: 100%;
+        text-align: center;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    .footerDesc 
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+  }
