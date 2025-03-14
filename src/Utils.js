@@ -11,5 +11,7 @@ export const utils = {
     cart: "/shoppingcart",
     adminProducts: "/admin/products",
     adminOrder: "/admin/orders",
+    addProduct: "/admin/addProducts",
+    header: "/admin/header",
   },
 };

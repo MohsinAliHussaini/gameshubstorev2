@@ -13,8 +13,10 @@ import OtherProduct from "./OtherProduct/OtherProduct";
 import { utils } from "./Utils";
 import SingleProduct from "./SingleProduct/SingleProduct";
 import ShoppingCart from "./ShoppingCart/ShoppingCart";
-import AdminProducts from "./AdminProducts/AdminProducts";
-import AdminOrder from "./AdminOrder/AdminOrder";
+import AdminProducts from "./Admin/AdminProducts/AdminProducts";
+import AdminOrder from "./Admin/AdminOrder/AdminOrder";
+import AddProduct from "./Admin/AdminProducts/AddProduct";
+import AdminHeader from "./Admin/AdminHeader/AdminHeader";
 console.log("Uitls", utils);
 const router = createBrowserRouter([
   {
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: utils.routesName.adminOrder,
     element: <AdminOrder />,
+  },
+  {
+    path: utils.routesName.addProduct,
+    element: <AddProduct />,
   },
 ]);
 

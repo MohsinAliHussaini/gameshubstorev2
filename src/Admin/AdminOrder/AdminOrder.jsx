@@ -1,7 +1,8 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
+import AdminHeader from "../AdminHeader/AdminHeader";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 const AdminOrder = () => {
@@ -20,24 +21,27 @@ const AdminOrder = () => {
 
   return (
     <>
-      <Row>
-        <Col>
-          <h1>Order</h1>
-          <Button className="float-right mr-3">Add Order</Button>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <div style={{ height: "300px" }} className="mt-3">
-            <AgGridReact
-              rowData={rowData}
-              columnDefs={colDefs}
-              defaultColDef={{ flex: 1 }}
-              pagination={true}
-            />
-          </div>
-        </Col>
-      </Row>
+      <Container>
+        <AdminHeader />
+        <Row>
+          <Col>
+            <h1>Order</h1>
+            <Button className="float-right mr-3">Add Order</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <div style={{ height: "300px" }} className="mt-3">
+              <AgGridReact
+                rowData={rowData}
+                columnDefs={colDefs}
+                defaultColDef={{ flex: 1 }}
+                pagination={true}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
