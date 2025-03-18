@@ -8,4 +8,7 @@ export const resources_EN = {
   productPriceValid: "Please add product price",
   productImageValid: "Please add product image",
   productDateValid: "Please add product date",
+  fullNameValid: "Please add your name",
+  mobileNumValid: "Please add your mobile number",
+  deliveryAddressValid: "Please add your delivery address",
 };

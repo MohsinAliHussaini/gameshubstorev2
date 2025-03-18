@@ -1,0 +1,46 @@
+.buyNowButton {
+    width:100%;
+    border-radius:5px;
+    background-color:#001F3F;
+    color:white;
+    border-color:#001F3F;
+    font-weight: bold;
+}
+
+.buyNowButton:active {
+    background-color:#001F3F;
+}
+
+.buyNowButton:hover {
+    background-color:#001F3F;
+    color:white;
+    border-color:#001F3F;
+    font-weight: bold;
+}
+.buyNowButton:active {
+    background-color:#001F3F;
+    color:white;
+    border-color:#001F3F;
+    font-weight: bold;
+}
+.buyNowButton:focus {
+    background-color:#001F3F;
+    color:white;
+    border-color:#001F3F;
+    font-weight: bold;
+}
+
+.backButton {
+    background-color: white;
+    color:#001F3F;
+    width:100%;
+    font-weight: bold;
+    border-color:white;
+}
+.backButton:hover {
+    background-color: white;
+    color:#001F3F;
+    width:100%;
+    font-weight: bold;
+    border-color:white;
+}

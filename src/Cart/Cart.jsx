@@ -1,8 +1,15 @@
 import { Col, Row } from "react-bootstrap";
 import "./Cart.css";
 import { utils } from "../Utils";
+import { CartContext } from "../AddToCartComp/CartContext";
+import { useContext } from "react";
 const Cart = (props) => {
   const { productImg, price, description, title } = props;
+  const { addToCart } = useContext(CartContext);
+
+  const addProduct = () => {
+    addToCart(props);
+  };
   return (
     <>
       <Row>
@@ -20,7 +27,9 @@ const Cart = (props) => {
                   maximumSignificantDigits: 3,
                 }).format(price)}{" "}
               </p>
-              <button class="add-to-cart mt-4">Add to Cart</button>
+              <button class="add-to-cart mt-4" onClick={addProduct}>
+                Add to Cart
+              </button>
             </div>
           </div>
         </Col>

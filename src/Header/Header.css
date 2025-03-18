@@ -7,3 +7,61 @@
     color:#001F3F !important;
     font-family: "Open Sans", sans-serif;
 }
+
+.navBarItem  a.active {
+    color: rgb(34 197 94);
+   }
+
+
+   .cart-count {
+    position: absolute;
+    top: -5px;
+    right:60px;
+    background-color: #001F3F;
+    color: white;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-weight: bold;
+    border:1px solid white
+  }
+
+  /* Cart Panel */
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -50%;
+    width: 50%;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1500;
+    overflow-y: auto;
+  }
+  
+  .cart-panel.open {
+    right: 0;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+  
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1400;
+  }

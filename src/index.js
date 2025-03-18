@@ -17,6 +17,7 @@ import AdminProducts from "./Admin/AdminProducts/AdminProducts";
 import AdminOrder from "./Admin/AdminOrder/AdminOrder";
 import AddProduct from "./Admin/AdminProducts/AddProduct";
 import AdminHeader from "./Admin/AdminHeader/AdminHeader";
+import BuyNowForm from "./BuyNowForm/BuyNowForm";
 console.log("Uitls", utils);
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: utils.routesName.addProduct,
     element: <AddProduct />,
+  },
+  {
+    path: utils.routesName.buyNow,
+    element: <BuyNowForm />,
   },
 ]);
 

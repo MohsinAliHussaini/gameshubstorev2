@@ -24,17 +24,21 @@ const SingleProduct = () => {
         <Header />
       </Container>
       <Container fluid>
-        <Row className="mt-3">
+        <Row className="mt-5 justify-content-center">
           <Col lg={4}>
             <div className="singleProductImg">
               {" "}
               <img src={dummyData.singleProductData.productImg} />
             </div>
           </Col>
-          <Col lg={6}>
+          <Col
+            lg={6}
+            className="bg-white shadow p-3"
+            style={{ borderRadius: "10px" }}
+          >
             <Row>
               <Col>
-                <h3 className="mt-4" style={{ fontWeight: "800" }}>
+                <h3 className="mt-2" style={{ fontWeight: "800" }}>
                   {dummyData.singleProductData.title}
                 </h3>
               </Col>
@@ -144,9 +148,8 @@ const SingleProduct = () => {
             </Row>
           </Col>
         </Row>
-
-        <Footer />
       </Container>
+      <Footer />
     </>
   );
 };

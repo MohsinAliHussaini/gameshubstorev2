@@ -13,5 +13,6 @@ export const utils = {
     adminOrder: "/admin/orders",
     addProduct: "/admin/addProducts",
     header: "/admin/header",
+    buyNow: "/buynow",
   },
 };

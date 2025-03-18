@@ -3,6 +3,7 @@ import Cart from "../Cart/Cart";
 
 const NewProduct = (props) => {
   const { category_name, showButton = false, link, data } = props;
+
   return (
     <>
       <Row>

@@ -13,6 +13,9 @@
     border-radius: 12px;
 }
 
+
+
+
 .singleProductCart:hover {
     background-color:white   ;
     color:#001F3F;
@@ -20,12 +23,27 @@
 
 }
 
+.singleProductCart:active {
+    background-color:white   ;
+    color:#001F3F;
+    border: 2px solid #001F3F;
+    border-color:#001F3F
+}
+
+
+.singleProductCart:focus {
+    background-color:white   ;
+    color:#001F3F;
+    border: 2px solid #001F3F;
+    border-color:#001F3F
+
+}
+
 .quantityBtn {
     background-color: white;
     color: #001F3F;
-    border: 2px solid #001F3F;
-    font-weight: 900;
-    border-radius: 6px;
+    font-weight: 600;
+    border:none;
 }
 .quantityBtn:hover {
     background-color: #001F3F;
@@ -70,6 +88,20 @@
 
 
 .buyNowBtn:hover {
+    background-color: green;
+    color:white;
+    border: 2px solid green;
+
+}
+
+.buyNowBtn:active {
+    background-color: green;
+    color:white;
+    border: 2px solid green;
+
+}
+
+.buyNowBtn:focus {
     background-color: green;
     color:white;
     border: 2px solid green;
