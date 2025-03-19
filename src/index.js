@@ -18,6 +18,7 @@ import AdminOrder from "./Admin/AdminOrder/AdminOrder";
 import AddProduct from "./Admin/AdminProducts/AddProduct";
 import AdminHeader from "./Admin/AdminHeader/AdminHeader";
 import BuyNowForm from "./BuyNowForm/BuyNowForm";
+import { CartProvider } from "./AddToCartComp/CartContext";
 console.log("Uitls", utils);
 const router = createBrowserRouter([
   {
@@ -81,7 +82,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 );
 

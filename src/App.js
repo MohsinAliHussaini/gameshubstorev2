@@ -8,9 +8,7 @@ import { CartProvider } from "./AddToCartComp/CartContext";
 function App() {
   return (
     <>
-      <CartProvider>
-        <Home />
-      </CartProvider>
+      <Home />
     </>
   );
 }

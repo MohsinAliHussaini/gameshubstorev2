@@ -3,6 +3,8 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import NewProduct from "../New_Product/NewProduct";
 import { dummyData } from "../data";
+import { useContext } from "react";
+import { CartContext, useCart } from "../AddToCartComp/CartContext";
 
 const PS5Product = () => {
   return (

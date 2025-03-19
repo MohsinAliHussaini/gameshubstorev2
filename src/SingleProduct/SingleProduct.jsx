@@ -2,10 +2,13 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { dummyData } from "../data";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./SingleProduct.css";
+import { CartContext } from "../AddToCartComp/CartContext";
 
 const SingleProduct = () => {
+  const { addToCart } = useContext(CartContext);
+
   const [quantity, setQuantity] = useState(0);
 
   const changingQuantity = (action) => {

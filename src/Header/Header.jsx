@@ -4,17 +4,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./Header.css";
 import { utils } from "../Utils";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext, useCart } from "../AddToCartComp/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import AddToCartComp from "../AddToCartComp/AddToCartComp";
 const Header = () => {
   /* State */
-  const { cart } = useContext(CartContext);
+  const { cart } = useCart();
   const [showAddToCart, setShowAddToCart] = useState(false);
-
+  const [cartItems, setCartItems] = useState([]);
   /* End State */
+
+  useEffect(() => {}, [cart]);
 
   return (
     <>

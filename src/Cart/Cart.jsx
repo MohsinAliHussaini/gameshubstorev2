@@ -1,15 +1,16 @@
 import { Col, Row } from "react-bootstrap";
 import "./Cart.css";
 import { utils } from "../Utils";
-import { CartContext } from "../AddToCartComp/CartContext";
+import { CartContext, useCart } from "../AddToCartComp/CartContext";
 import { useContext } from "react";
 const Cart = (props) => {
   const { productImg, price, description, title } = props;
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   const addProduct = () => {
     addToCart(props);
   };
+
   return (
     <>
       <Row>

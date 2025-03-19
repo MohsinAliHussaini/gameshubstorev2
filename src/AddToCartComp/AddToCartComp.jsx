@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, ListGroup, Image } from "react-bootstrap";
-import { CartContext } from "./CartContext";
+import { CartContext, useCart } from "./CartContext";
 
 const AddToCartComp = () => {
-  const { cart, addToCart, removeFromCart } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart } = useCart();
+  const [cartItems, setCartItems] = useState([]);
 
   // Calculate total price
   const totalPrice = cart.reduce(
@@ -11,13 +12,21 @@ const AddToCartComp = () => {
     0
   );
 
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
+    }
+  }, [cart]);
+
+  console.log("Cart Items");
   return (
     <div>
-      {cart.length === 0 ? (
+      {cartItems.length === 0 ? (
         <p className="text-center">🛒 Cart is empty</p>
       ) : (
         <ListGroup>
-          {cart.map((item) => (
+          {cartItems.map((item) => (
             <ListGroup.Item
               key={item.id}
               className="d-flex justify-content-between align-items-center"
