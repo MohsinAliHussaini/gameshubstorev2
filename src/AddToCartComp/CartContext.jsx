@@ -16,10 +16,6 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
   const clearCart = () => {
     setCart([]);
     localStorage.removeItem("cart"); // ✅ Clears cart from localStorage
@@ -36,11 +32,18 @@ export const CartProvider = ({ children }) => {
         );
       }
 
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...prevCart, { ...product, quantity: 1 }])
+      );
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+    let productData = [...cart];
+    productData = productData.filter((item) => item.id !== productId);
+    localStorage.setItem("cart", JSON.stringify(productData));
   };
 
   return (

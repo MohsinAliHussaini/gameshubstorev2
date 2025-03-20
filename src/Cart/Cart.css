@@ -33,7 +33,6 @@
 .product-info h2 {
     font-size: 20px;
     text-transform: capitalize;
-    font-weight: 700;
     color:#001F3F;
     
 }
@@ -45,7 +44,6 @@
     font-size: 18px;
     margin-bottom: 20px;
     margin:0;
-    font-weight: 700;
     color:#001F3F;
 }
 .price {
@@ -100,9 +98,7 @@
     .product-info {
         text-align: center !important;
     }
-    .product-info p {
-        font-weight: bold !important;
-    }
+  
 
     .cart-root {
         width: 100%;
@@ -121,7 +117,6 @@
         font-size:1.3rem;
     }
     .product-info p {
-        font-weight: bold !important;
         font-size:1.3rem;
     }
     .cart-root {

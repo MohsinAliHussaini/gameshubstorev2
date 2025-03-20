@@ -66,8 +66,8 @@ const Header = () => {
                 >
                   ✖
                 </button>
-                <h3>Your Cart</h3>
-                <AddToCartComp />
+                <h5>Your Cart</h5>
+                <AddToCartComp setShowAddToCart={setShowAddToCart} />
               </div>
 
               {/* Overlay */}

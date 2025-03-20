@@ -5,11 +5,14 @@ import { dummyData } from "../data";
 import { useContext, useState } from "react";
 import "./SingleProduct.css";
 import { CartContext } from "../AddToCartComp/CartContext";
+import { useNavigate } from "react-router-dom";
+import { utils } from "../Utils";
 
 const SingleProduct = () => {
   const { addToCart } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(0);
+  const navigate = useNavigate();
 
   const changingQuantity = (action) => {
     if (action === "-") {
@@ -19,6 +22,10 @@ const SingleProduct = () => {
     } else {
       setQuantity(quantity + 1);
     }
+  };
+
+  const buyNow = () => {
+    navigate(utils.routesName.buyNow);
   };
 
   return (
@@ -41,17 +48,12 @@ const SingleProduct = () => {
           >
             <Row>
               <Col>
-                <h3 className="mt-2" style={{ fontWeight: "800" }}>
-                  {dummyData.singleProductData.title}
-                </h3>
+                <h3 className="mt-2">{dummyData.singleProductData.title}</h3>
               </Col>
             </Row>
             <Row>
               <Col>
-                <h3
-                  className="font-bold blackText"
-                  style={{ fontWeight: "600" }}
-                >
+                <h3 className="blackText" style={{ fontWeight: "600" }}>
                   Rs.{" "}
                   {new Intl.NumberFormat("en-EN", {
                     maximumSignificantDigits: 3,
@@ -82,7 +84,9 @@ const SingleProduct = () => {
                   <Button className="ml-3 singleProductCart">
                     Add to Cart
                   </Button>
-                  <Button className="ml-3 buyNowBtn">Buy Now</Button>
+                  <Button className="ml-3 buyNowBtn" onClick={buyNow}>
+                    Buy Now
+                  </Button>
                 </div>
               </Col>
             </Row>
@@ -100,7 +104,7 @@ const SingleProduct = () => {
               <Col>
                 <Row className="mt-3">
                   <Col lg={12}>
-                    <h6 className="font-weight-bold blackText">
+                    <h6 className=" blackText">
                       Pick up from the Game Hub Store{" "}
                       <span className="float-right">Free</span>
                     </h6>
@@ -108,7 +112,7 @@ const SingleProduct = () => {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                    <h6 className="font-weight-bold blackText">
+                    <h6 className=" blackText">
                       Express within Karachi{" "}
                       <span className="float-right">1-2 Days</span>
                     </h6>
@@ -116,7 +120,7 @@ const SingleProduct = () => {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                    <h6 className="font-weight-bold blackText">
+                    <h6 className=" blackText">
                       Courier Outside Karachi{" "}
                       <span className="float-right">2-3 Days</span>
                     </h6>
@@ -128,7 +132,7 @@ const SingleProduct = () => {
               <Col>
                 <Row className="mt-3">
                   <Col lg={12}>
-                    <h6 className="font-weight-bold blackText">
+                    <h6 className=" blackText">
                       Warranty Coverage{" "}
                       <span className="float-right">
                         {" "}
@@ -139,7 +143,7 @@ const SingleProduct = () => {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                    <h6 className="font-weight-bold blackText">
+                    <h6 className=" blackText">
                       Need help? Ask our Experts{" "}
                       <span className="float-right">
                         Contact to our support

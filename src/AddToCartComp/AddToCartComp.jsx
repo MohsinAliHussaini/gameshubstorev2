@@ -1,11 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, ListGroup, Image } from "react-bootstrap";
+import { Button, ListGroup, Image, Col, Row, NavLink } from "react-bootstrap";
 import { CartContext, useCart } from "./CartContext";
+import "./AddToCartComp.css";
+import { useNavigate } from "react-router-dom";
+import { utils } from "../Utils";
 
-const AddToCartComp = () => {
+const AddToCartComp = (props) => {
   const { cart, addToCart, removeFromCart } = useCart();
+  const { setShowAddToCart } = props;
   const [cartItems, setCartItems] = useState([]);
-
+  const storedCart = localStorage.getItem("cart");
+  const navigate = useNavigate();
   // Calculate total price
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -13,74 +18,117 @@ const AddToCartComp = () => {
   );
 
   useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCartItems(JSON.parse(storedCart));
     }
-  }, [cart]);
+  }, [storedCart]);
 
-  console.log("Cart Items");
+  const addMoreItems = () => {
+    setShowAddToCart(false);
+  };
+
+  const placeOrder = () => {
+    navigate(utils.routesName.buyNow);
+  };
   return (
     <div>
       {cartItems.length === 0 ? (
         <p className="text-center">🛒 Cart is empty</p>
       ) : (
-        <ListGroup>
-          {cartItems.map((item) => (
-            <ListGroup.Item
-              key={item.id}
-              className="d-flex justify-content-between align-items-center"
-            >
-              <div className="d-flex align-items-center">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width="50"
-                  height="50"
-                  className="me-3 rounded"
-                />
-                <div>
-                  <strong>{item.name}</strong>
-                  <p className="mb-0">Price: ${item.price}</p>
-                  <p className="mb-0">
-                    Subtotal: ${item.price * item.quantity}
-                  </p>
-                </div>
-              </div>
-
-              <div className="d-flex align-items-center">
-                {/* Decrease Quantity */}
-                <Button
-                  variant="outline-secondary"
-                  size="sm"
-                  onClick={() => removeFromCart(item.id)}
-                  disabled={item.quantity === 1}
-                  className="me-2"
+        <>
+          <ListGroup className="mt-4">
+            {cartItems.map((item) => (
+              <>
+                <ListGroup.Item
+                  key={item.id}
+                  className="d-flex justify-content-between align-items-center itemRoot shadow"
                 >
-                  -
-                </Button>
+                  <div className="d-flex align-items-center">
+                    <Image
+                      src={item.productImg}
+                      alt={item.title}
+                      width="75"
+                      height="75"
+                      className="me-3 rounded"
+                    />
+                    <div className="ml-3">
+                      <h6>{item.title}</h6>
+                      <strong className="mb-0" style={{ fontSize: "18px" }}>
+                        Rs.{item.price}
+                      </strong>
+                    </div>
+                  </div>
 
-                {/* Show Quantity */}
-                <span>{item.quantity}</span>
+                  <div className="d-flex align-items-center p-3">
+                    {/* Decrease Quantity */}
+                    <Button
+                      onClick={() => removeFromCart(item)}
+                      className="ms-2 addCartquantityBtn font-weight-bold"
+                    >
+                      -
+                    </Button>
 
-                {/* Increase Quantity */}
-                <Button
-                  variant="outline-primary"
-                  size="sm"
-                  onClick={() => addToCart(item)}
-                  className="ms-2"
+                    {/* Show Quantity */}
+                    <span style={{ fontSize: "16px", fontWeight: "700" }}>
+                      {item.quantity}
+                    </span>
+
+                    {/* Increase Quantity */}
+                    <Button
+                      onClick={() => addToCart(item)}
+                      className="ms-2 addCartquantityBtn"
+                    >
+                      +
+                    </Button>
+                  </div>
+                </ListGroup.Item>
+              </>
+            ))}
+          </ListGroup>
+          <Row>
+            <Col>
+              <NavLink className="mt-2" onClick={addMoreItems}>
+                + Add More Items
+              </NavLink>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <Row style={{ width: "25vw" }}>
+                <Col
+                  className="p-4 ml-4 mt-3 bg-white  shadow"
+                  style={{ borderRadius: "10px" }}
                 >
-                  +
-                </Button>
-              </div>
-            </ListGroup.Item>
-          ))}
+                  <div className="d-flex m-0 justify-content-between">
+                    <h6 className="font-weight-bold">Total</h6>
+                    <h6 className="font-weight-bold">Rs.{totalPrice}</h6>
+                  </div>
+                  <div className="d-flex m-0 justify-content-between">
+                    <h6 className="font-weight-bold">Delivery Fees</h6>
+                    <h6 className="font-weight-bold">Rs. 100</h6>
+                  </div>
+                  <div className="d-flex mb-0 justify-content-between">
+                    <h6 className="font-weight-bold">Grand Total</h6>
+                    <h6 className="font-weight-bold">Rs. {totalPrice}</h6>
+                  </div>
+                </Col>
+              </Row>
 
-          {/* Total Price */}
-          <ListGroup.Item className="text-end fw-bold">
-            Total: ${totalPrice}
-          </ListGroup.Item>
-        </ListGroup>
+              <Row style={{ width: "25vw" }}>
+                <Col className="p-4">
+                  <Button
+                    type="button"
+                    className="text-center mt-3 ml-3 buyNowButton"
+                    onClick={placeOrder}
+                  >
+                    Place Order
+                  </Button>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </>
       )}
     </div>
   );

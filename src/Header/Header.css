@@ -5,7 +5,9 @@
 
 .center a {
     color:#001F3F !important;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px !important;
+    font-weight: 500;
 }
 
 .navBarItem  a.active {
@@ -31,7 +33,7 @@
     position: fixed;
     top: 0;
     right: -50%;
-    width: 50%;
+    width: 28%;
     height: 100vh;
     background: white;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
@@ -39,6 +41,8 @@
     transition: right 0.3s ease-in-out;
     z-index: 1500;
     overflow-y: auto;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
   }
   
   .cart-panel.open {
@@ -53,6 +57,10 @@
     position: absolute;
     top: 15px;
     right: 20px;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 15px;
+    color: white;
   }
   
   /* Overlay */

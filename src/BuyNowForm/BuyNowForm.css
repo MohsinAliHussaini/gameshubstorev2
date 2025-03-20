@@ -31,16 +31,14 @@
 }
 
 .backButton {
-    background-color: white;
     color:#001F3F;
     width:100%;
     font-weight: bold;
-    border-color:white;
+    background-color: transparent;
+    border-color: transparent;
 }
 .backButton:hover {
-    background-color: white;
     color:#001F3F;
     width:100%;
     font-weight: bold;
-    border-color:white;
 }
