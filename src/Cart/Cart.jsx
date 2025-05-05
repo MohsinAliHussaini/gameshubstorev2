@@ -4,7 +4,7 @@ import { utils } from "../Utils";
 import { CartContext, useCart } from "../AddToCartComp/CartContext";
 import { useContext } from "react";
 const Cart = (props) => {
-  const { productImg, price, description, title } = props;
+  const { productImg, price, title, quantity } = props;
   const { addToCart } = useCart();
 
   const addProduct = () => {
@@ -21,12 +21,14 @@ const Cart = (props) => {
               <a className="link" href={utils.routesName.singleProduct}>
                 <h2 className="productHeading">{title}</h2>
               </a>
-              <p className="mt-3">{description}</p>
+              <p className="mt-1">
+                {+quantity > 0 ? "In Stock" : "Out of Stock"}
+              </p>
               <p className="price">
                 Rs.{" "}
                 {new Intl.NumberFormat("en-EN", {
                   maximumSignificantDigits: 3,
-                }).format(price)}{" "}
+                }).format(+price)}{" "}
               </p>
               <button class="add-to-cart mt-4" onClick={addProduct}>
                 Add to Cart

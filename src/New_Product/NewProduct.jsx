@@ -37,13 +37,21 @@ const NewProduct = (props) => {
             data.map((val) => (
               <Cart
                 productImg={val.productImg}
-                price={val.price}
-                description={val.description}
-                title={val.title}
+                price={val.prod_price}
+                description={val.prod_descrp}
+                title={val.prod_name}
+                id={val.prod_id}
+                quantity={val.prod_quantity}
               />
             ))
           ) : (
-            <></>
+            <>
+              <Row>
+                <Col>
+                  <h4 className="text-center">No Product Available</h4>
+                </Col>
+              </Row>
+            </>
           )}
         </Col>
       </Row>

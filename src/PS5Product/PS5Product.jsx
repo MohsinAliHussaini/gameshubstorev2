@@ -3,10 +3,30 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import NewProduct from "../New_Product/NewProduct";
 import { dummyData } from "../data";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext, useCart } from "../AddToCartComp/CartContext";
+import { getService } from "../genericPostService";
 
 const PS5Product = () => {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = () => {
+    const payload = {
+      cat_id: 1,
+    };
+    const url = "/gamesHubStoreApi/get_products.php";
+    getService(url, payload, setData);
+  };
+
+  const setData = (response) => {
+    console.log("Response", response);
+    setProduct(response);
+  };
+
   return (
     <>
       <Container>
@@ -17,7 +37,7 @@ const PS5Product = () => {
           <Col>
             <NewProduct
               category_name={"PlayStation 5 Products"}
-              data={dummyData.ps5Data}
+              data={product.product}
             />
           </Col>
         </Row>

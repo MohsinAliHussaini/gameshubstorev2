@@ -9,7 +9,33 @@ import NewProduct from "../New_Product/NewProduct";
 import Category from "../Category/Category";
 import LandingImage from "../LandingImage/LandingImage";
 import Footer from "../Footer/Footer";
+import { useEffect, useState } from "react";
+import { getService } from "../genericPostService";
 const Home = () => {
+  const [homeData, setHomeData] = useState({
+    latestAddition: [],
+    ps5: [],
+    nintendoSwitch: [],
+  });
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    const url = "/gamesHubStoreApi/home.php";
+    getService(url, {}, setData);
+  };
+
+  const setData = (response) => {
+    console.log("responseee", response);
+    setHomeData({
+      latestAddition: response.latest,
+      nintendoSwitch: response.nintendo,
+      ps5: response.ps5,
+    });
+  };
+
   return (
     <>
       <Container>
@@ -31,22 +57,22 @@ const Home = () => {
           <Col>
             <NewProduct
               category_name={"Latest Addition"}
-              showButton={true}
+              showButton={homeData.latestAddition.length > 0}
               link={utils.routesName.newArrivals}
-              data={dummyData.homeData}
+              data={homeData.latestAddition}
             />
             <NewProduct
-              category_name={"Xbox"}
-              showButton={true}
-              link={utils.routesName.ps4Link}
-              data={dummyData.homeData}
+              category_name={"PS5"}
+              showButton={homeData.ps5.length > 0}
+              link={utils.routesName.ps5Link}
+              data={homeData.ps5}
             />
 
             <NewProduct
               category_name={"Nintendo Switch"}
-              showButton={true}
+              showButton={homeData.nintendoSwitch.length > 0}
               link={utils.routesName.nintendoLink}
-              data={dummyData.homeData}
+              data={homeData.nintendoSwitch}
             />
           </Col>
         </Row>
